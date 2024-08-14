@@ -2,6 +2,7 @@ import React from 'react';
 import icons from './icons';
 import * as styles from './styles.module.css';
 
+//need to fix the logo
 function Home() {
     return(
         <header className={styles.header}>
