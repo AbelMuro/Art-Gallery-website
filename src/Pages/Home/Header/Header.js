@@ -1,8 +1,15 @@
 import React from 'react';
 import icons from './icons'
+import { useNavigate } from 'react-router-dom';
 import * as styles from './styles.module.css';
 
 function Header() {
+    const navigate = useNavigate();
+
+    const handleNavigate = () => {
+        navigate('/Location');
+    }
+
     return(
         <header className={styles.header}>
             <div className={styles.header_hero}>
@@ -21,7 +28,7 @@ function Header() {
                     pieces inspire you? Visit us and 
                     find out.
                 </p>
-                <button className={styles.header_button}>
+                <button className={styles.header_button} onClick={handleNavigate}>
                     our location
                     <div className={styles.header_arrow}/>
                 </button>
