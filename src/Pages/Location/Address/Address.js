@@ -1,7 +1,6 @@
 import React from 'react';
 import * as styles from './styles.module.css';
 
-
 //i need to implement the responsiveness for tablet
 function Address() {
     return(

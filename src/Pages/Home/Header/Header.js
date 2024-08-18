@@ -2,9 +2,12 @@ import React from 'react';
 import icons from './icons'
 import { useNavigate } from 'react-router-dom';
 import * as styles from './styles.module.css';
+import useMediaQuery from '~/Hooks/useMediaQuery';
 
 function Header() {
     const navigate = useNavigate();
+    const [tablet] = useMediaQuery('(max-width: 800px)');
+    const [mobile] = useMediaQuery('(max-width: 650px)');
 
     const handleNavigate = () => {
         navigate('/Location');
@@ -13,14 +16,24 @@ function Header() {
     return(
         <header className={styles.header}>
             <div className={styles.header_hero}>
-                <img className={styles.header_title} src={icons['lightLogo']}/>                
-                <img className={styles.header_title} src={icons['darkLogo']}/>                     
-                <img className={styles.header_image}/>
+                {!mobile && 
+                <>
+                    <div className={styles.header_blackbox}>
+                        <img className={styles.header_lightLogo} src={icons['lightLogo']}/>     
+                    </div>
+                    <div className={styles.header_imageContainer}>
+                        <img className={styles.header_darkLogo} src={icons['darkLogo']}/>   
+                        <img className={styles.header_image}/>
+                    </div>
+                </>}  
+                {mobile && 
+                    <img className={styles.header_image}/>
+                    }                        
             </div>
             <div className={styles.header_content}>
-                <strong className={styles.header_tablet_title}> 
-                    Modern art gallery
-                </strong>
+                 {tablet &&
+                    <img className={styles.header_title} src={icons['darkLogo']}/>
+                 }
                 <p>
                     The arts in the collection of the 
                     Modern Art Gallery all started from 
