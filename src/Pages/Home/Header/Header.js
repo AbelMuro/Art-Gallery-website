@@ -15,8 +15,8 @@ function Header() {
 
     return(
         <header className={styles.header}>
-            <div className={styles.header_hero}>
-                {!mobile && 
+            {!mobile && <div className={styles.header_hero}>
+                
                 <>
                     <div className={styles.header_blackbox}>
                         <img className={styles.header_lightLogo} src={icons['lightLogo']}/>     
@@ -25,11 +25,11 @@ function Header() {
                         <img className={styles.header_darkLogo} src={icons['darkLogo']}/>   
                         <img className={styles.header_image}/>
                     </div>
-                </>}  
+                </>     
+            </div>}
                 {mobile && 
                     <img className={styles.header_image}/>
-                    }                        
-            </div>
+                    }                 
             <div className={styles.header_content}>
                  {tablet &&
                     <img className={styles.header_title} src={icons['darkLogo']}/>
